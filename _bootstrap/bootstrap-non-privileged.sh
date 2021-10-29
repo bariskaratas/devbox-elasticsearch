@@ -4,6 +4,9 @@
 ES_VERSION="7.15.1"
 ES_BUILD="linux-x86_64"
 
+# get gpg
+curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+
 # get elasticsearch
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VERSION-$ES_BUILD.tar.gz
 
@@ -26,7 +29,7 @@ source /home/vagrant/.rvm/scripts/rvm
 
 # install dependencies for ELK
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
-sudp apt-get update
+sudo apt-get update
 sudo apt-get install -y logstash
 wget https://artifacts.elastic.co/downloads/kibana/kibana-$ES_VERSION-$ES_BUILD.tar.gz
 tar -zxvf kibana-$ES_VERSION-$ES_BUILD.tar.gz
