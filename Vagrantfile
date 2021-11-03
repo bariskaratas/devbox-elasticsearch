@@ -18,8 +18,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     box.customize ["modifyvm", :id, "--rtcuseutc", "on"]
   end
 
-  config.vm.define "esbox",primary: true do |box|
-    box.vm.hostname = "esbox"
+  config.vm.define "devbox",primary: true do |box|
+    box.vm.hostname = "devbox-elasticsearch"
     box.vm.box = "ubuntu/focal64"
     
     # box.vm.network :private_network, ip: "9.9.9.9"
